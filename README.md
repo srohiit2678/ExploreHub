@@ -1,3 +1,2 @@
 # ExploreHub
-
-Let's Explore The Projects 
+For Collage Minor Project Read it.
