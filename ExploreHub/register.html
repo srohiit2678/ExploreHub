@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Sign Up</h2>
+        <form action="UserRegister">
+            <label  for="name"style="text-align:left;" >Name<span style="color:red;">*</span>:</label>
+            <input type="text" name="name" required>
+
+            <label for="enroll_id">Enroll ID:</label>
+            <input type="text" name="enroll_id" required>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" required>
+
+            <label for="department">Department:</label>
+            <select name="department">
+                <option value="1">CSE</option>
+                <option value="2">IT</option>
+                <option value="3">AIDS</option>
+            </select>
+
+            <label for="type">Type:</label>
+            <select name="type">
+                <option value="Student">Student</option>
+                <option value="Teacher">Teacher</option>
+                <option value="Admin">Administrator</option>
+            </select>
+           
+
+            <label for="password">Password:</label>
+            <input type="password" name="password" required>
+
+            <button type="submit">Sign Up</button>
+            <p>Already have an account? <a href="login.html">Login</a></p>
+        </form>
+    </div>
+</body>
+</html>
