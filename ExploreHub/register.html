@@ -3,43 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>Explore Hub - Register</title>
     <link rel="stylesheet" href="register.css">
 </head>
 <body>
     <div class="container">
-        <h2>Sign Up</h2>
-        <form action="UserRegister">
-            <label  for="name"style="text-align:left;" >Name<span style="color:red;">*</span>:</label>
-            <input type="text" name="name" required>
-
-            <label for="enroll_id">Enroll ID:</label>
-            <input type="text" name="enroll_id" required>
-
-            <label for="email">Email:</label>
-            <input type="email" name="email" required>
-
-            <label for="department">Department:</label>
-            <select name="department">
-                <option value="1">CSE</option>
-                <option value="2">IT</option>
-                <option value="3">AIDS</option>
-            </select>
-
-            <label for="type">Type:</label>
-            <select name="type">
-                <option value="Student">Student</option>
-                <option value="Teacher">Teacher</option>
-                <option value="Admin">Administrator</option>
-            </select>
-           
-
-            <label for="password">Password:</label>
-            <input type="password" name="password" required>
-
-            <button type="submit">Sign Up</button>
+        <!-- Welcome Section with Logo -->
+		
+        <div class="welcome-section">
+            <h2>Join Explore Hub</h2>
+			<img src="cdgi.png" alt="Explore College Logo"><br><br><br><br><br><br>
+			<h2 style="color:yellow;">Chameli Devi Group Of Institutions</h2><br><br><br><br>
+            <p>Sign up and start exploring amazing projects with expert guidance.</p>
+        </div>
+        
+        <!-- Register Section -->
+        <div class="register-section">
+            <h2>Register</h2>
+            <form action="UserRegister">
+                <!-- Full Name Input -->
+                <label for="name">Full Name<span style="color:red;">*</span>:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                
+                <!-- Enrollment ID Input -->
+                <label for="enroll_id">Enrollment ID<span style="color:red;">*</span>:</label>
+                <input type="text" id="enroll_id" name="enroll_id" placeholder="Enter your enrollment ID" required>
+                
+                <!-- Email Input -->
+                <label for="email">Email<span style="color:red;">*</span>:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                
+                <!-- Department Selection Dropdown -->
+                <label for="department">Department<span style="color:red;">*</span>:</label>
+                <select id="department" name="department" required>
+                    <option value="">Select Department</option>
+                    <option value="1">Computer Science</option>
+                    <option value="2">Information Technology</option>
+                    <option value="3">AIDS</option>
+                </select>
+                
+                <!-- Role Type Selection Dropdown -->
+                <label for="type">Role Type<span style="color:red;">*</span>:</label>
+                <select id="type" name="type" required>
+                    <option value="">Select Role</option>
+                    <option value="student">Student</option>
+                    <option value="teacher">Teacher</option>
+                    <option value="admin">Admin</option>
+                </select>
+                
+                <!-- Password Input -->
+                <label for="password">Password<span style="color:red;">*</span>:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                
+                <!-- Confirm Password Input -->
+                <label for="confirm-password">Confirm Password<span style="color:red;">*</span>:</label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
+                
+                <!-- Register Button -->
+                <button type="submit">Register</button>
+            </form>
+            
+            <!-- Link to Login Page -->
             <p>Already have an account? <a href="login.html">Login</a></p>
-        </form>
+        </div>
     </div>
 </body>
 </html>
