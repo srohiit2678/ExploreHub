@@ -50,9 +50,10 @@ WHERE p.project_id = <PROJECT_ID> -- 🔥 Filter by
 GROUP BY p.project_id, s.user_id, g.user_id, d.department_name;
 
 
--- 6.1  Modified Query to Fetch All Projects of a Specific Student
---To fetch all projects of a specific student, you need to filter by s.user_id (the student's ID) instead of p.project_id.
+-- 6.1 Fetch All Projects of a Specific Student
+--To fetch all projects of a specific student, you need to filter by s.user_id
 USE explorehub;
+
 SELECT 
     p.project_id, 
     p.title, 
@@ -85,12 +86,12 @@ GROUP BY p.project_id, s.user_id, g.user_id, d.department_name;
 
 --6.2 To fetch projects of a specific student in a specific department:
 
-WHERE s.user_id = <STUDENT_ID> AND d.department_id = <DEPT_ID>; -- 🔥 Filter by
+WHERE s.user_id = <STUDENT_ID> AND d.department_id = <DEPT_ID>; -- 🔥 Filter by department
 
 
 --6.3 To fetch only pending projects of a student:
 
-WHERE s.user_id = <STUDENT_ID> AND p.status = 'Pending';
+WHERE s.user_id = <STUDENT_ID> AND p.status = 'Pending'; -- 🔥 Filter by panding status
 
 --6.4 
 
@@ -124,22 +125,6 @@ LEFT JOIN Comments c ON p.project_id = c.project_id
 LEFT JOIN Files f ON p.project_id = f.project_id
 WHERE s.user_id = 1
 GROUP BY p.project_id, s.user_id, g.user_id, d.department_name;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 --7.Fetch All Details of a Specific Project:
