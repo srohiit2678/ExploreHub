@@ -1,524 +1,318 @@
 <div class="max-w-4xl mx-auto bg-white shadow-md rounded-lg p-6 mt-4">
     <style>
-      * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
   
-      body {
-        background: linear-gradient(to right, #6a11cb, #2575fc);
-          min-height: 100vh;
-          padding: 2rem;
-      }
-      .form-group {
-  margin-bottom: 1.5rem;
-  }
+        body {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            min-height: 100vh;
+            padding: 2rem;
+        }
   
-  label {
-  display: block;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #374151;
-  margin-bottom: 0.5rem;
-  }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
   
-  select {
-  width: 100%;
-  padding: 0.5rem 0.75rem;
-  border: 1px solid #d1d5db;
-  border-radius: 0.375rem;
-  font-size: 0.875rem;
-  transition: all 0.2s;
-  }
+        label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
   
-  select:focus {
-  outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
-  }
+        select {
+            width: 100%;
+            padding: 0.5rem 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+        }
   
+        select:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+        }
   
-      .card {
-          max-width: 800px;
-          margin: 0 auto;
-          background: white;
-          border-radius: 8px;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
+        .card {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
   
-      .card-header {
-          padding: 1.5rem;
-          border-bottom: 1px solid #e5e7eb;
-      }
+        .card-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
   
-      .card-title {
-          font-size: 1.5rem;
-          font-weight: bold;
-          text-align: center;
-          color: #111827;
-      }
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            color: #111827;
+        }
   
-      .card-content {
-          padding: 1.5rem;
-      }
+        .card-content {
+            padding: 1.5rem;
+        }
   
-      .form-group {
-          margin-bottom: 1.5rem;
-      }
+        input[type="text"],
+        input[type="url"],
+        textarea {
+            width: 100%;
+            padding: 0.5rem 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+        }
   
-      label {
-          display: block;
-          font-size: 0.875rem;
-          font-weight: 500;
-          color: #374151;
-          margin-bottom: 0.5rem;
-      }
+        input[type="text"]:focus,
+        input[type="url"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+        }
   
-      input[type="text"],
-      input[type="url"],
-      textarea {
-          width: 100%;
-          padding: 0.5rem 0.75rem;
-          border: 1px solid #d1d5db;
-          border-radius: 0.375rem;
-          font-size: 0.875rem;
-          transition: all 0.2s;
-      }
+        .team-member {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            align-items: center;
+        }
   
-      input[type="text"]:focus,
-      input[type="url"]:focus,
-      textarea:focus {
-          outline: none;
-          border-color: #3b82f6;
-          box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
-      }
+        .team-member-role {
+            min-width: 80px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #3b82f6;
+        }
   
-      .team-member {
-          display: flex;
-          gap: 0.5rem;
-          margin-bottom: 1rem;
-          align-items: center;
-      }
+        .tech-stacks {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
   
-      .team-member-role {
-          min-width: 80px;
-          font-size: 0.875rem;
-          font-weight: 500;
-          color: #3b82f6;
-      }
+        .tech-stack-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            background: white;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+        }
   
-      .tech-stacks {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 0.5rem;
-          margin-top: 0.5rem;
-      }
+        .tech-stack-btn.active {
+            background: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
   
-      .tech-stack-btn {
-          padding: 0.5rem 1rem;
-          border: 1px solid #d1d5db;
-          border-radius: 0.375rem;
-          background: white;
-          cursor: pointer;
-          font-size: 0.875rem;
-          transition: all 0.2s;
-      }
+        .btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid transparent;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
   
-      .tech-stack-btn.active {
-          background: #3b82f6;
-          color: white;
-          border-color: #3b82f6;
-      }
+        .btn-primary {
+            background: #3b82f6;
+            color: white;
+        }
   
-      .btn {
-          padding: 0.5rem 1rem;
-          border: 1px solid transparent;
-          border-radius: 0.375rem;
-          font-size: 0.875rem;
-          font-weight: 500;
-          cursor: pointer;
-          transition: all 0.2s;
-      }
+        .btn-primary:hover {
+            background: #2563eb;
+        }
   
-      .btn-primary {
-          background: #3b82f6;
-          color: white;
-      }
+        .btn-outline {
+            border-color: #d1d5db;
+            background: white;
+        }
   
-      .btn-primary:hover {
-          background: #2563eb;
-      }
+        .btn-outline:hover {
+            background: #f3f4f6;
+        }
   
-      .btn-outline {
-          border-color: #d1d5db;
-          background: white;
-      }
+        .btn-icon {
+            padding: 0.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
   
-      .btn-outline:hover {
-          background: #f3f4f6;
-      }
+        .error-message {
+            color: #dc2626;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
   
-      .btn-icon {
-          padding: 0.25rem;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-      }
+        .alert {
+            padding: 1rem;
+            border-radius: 0.375rem;
+            margin-top: 1rem;
+        }
   
-      .error-message {
-          color: #dc2626;
-          font-size: 0.875rem;
-          margin-top: 0.25rem;
-      }
+        .alert-success {
+            background: #ecfdf5;
+            border: 1px solid #059669;
+            color: #059669;
+        }
   
-      .alert {
-          padding: 1rem;
-          border-radius: 0.375rem;
-          margin-top: 1rem;
-      }
+        .alert-error {
+            background: #fef2f2;
+            border: 1px solid #dc2626;
+            color: #dc2626;
+        }
   
-      .alert-success {
-          background: #ecfdf5;
-          border: 1px solid #059669;
-          color: #059669;
-      }
+        .upload-container {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
   
-      .alert-error {
-          background: #fef2f2;
-          border: 1px solid #dc2626;
-          color: #dc2626;
-      }
+        .upload-container label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
   
-      .loading {
-          display: inline-block;
-          width: 1rem;
-          height: 1rem;
-          border: 2px solid #ffffff;
-          border-radius: 50%;
-          border-top-color: transparent;
-          animation: spin 1s linear infinite;
-          margin-right: 0.5rem;
-      }
+        .upload-container input {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
   
-      /* img upload */
-      .upload-container {
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 15px;
-  }
-  .upload-container label {
-      display: block;
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: #374151;
-      margin-bottom: 0.5rem;
-  }
-  .upload-container input {
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-  }
-  .remove-btn {
-      background: red;
-      color: white;
-      border: none;
-      padding: 4px 8px;
-      cursor: pointer;
-      border-radius: 3px;
-      font-size: 12px;
-  }
-  .remove-btn:hover {
-      background: darkred;
-  }
-  @media (max-width: 600px) {
-      .upload-container {
-          flex-direction: column;
-      }
-  }
+        .remove-btn {
+            background: red;
+            color: white;
+            border: none;
+            padding: 4px 8px;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 12px;
+        }
   
+        .remove-btn:hover {
+            background: darkred;
+        }
   
+        @media (max-width: 600px) {
+            .upload-container {
+                flex-direction: column;
+            }
+        }
+    </style>
   
+    <div class="card">
+        <div class="card-header">
+            <h1 class="card-title">Submit your project</h1>
+        </div>
+        <div class="card-content">
+            <form id="projectForm" action="home.html" method="GET">
+                <div class="form-group">
+                    <label>Project Name *</label>
+                    <input type="text" name="projectName" required>
+                    <div class="error-message"></div>
+                </div>
   
-      @keyframes spin {
-          to {
-              transform: rotate(360deg);
-          }
-      }
-  </style>
-  </head>
-  <body>
-  <div class="card">
-      <div class="card-header">
-          <h1 class="card-title">Submit your project</h1>
-      </div>
-      <div class="card-content">
-          <form id="projectForm">
-              <div class="form-group">
-                  <label>Project Name *</label>
-                  <input type="text" name="projectName" required>
-                  <div class="error-message"></div>
-              </div>
+                <div class="form-group">
+                    <label>Description *</label>
+                    <textarea name="description" rows="4" required></textarea>
+                    <div class="error-message"></div>
+                </div>
   
-              <div class="form-group">
-                  <label>Description *</label>
-                  <textarea name="description" rows="4" required></textarea>
-                  <div class="error-message"></div>
-              </div>
+                <div class="form-group">
+                    <label>Mentor Name *</label>
+                    <select name="mentorName" required>
+                        <option value="" disabled selected>Select Mentor</option>
+                        <option value="Dr. Sanjay Mehta">Dr. Sanjay Mehta</option>
+                        <option value="Prof. Anjali Rao">Prof. Anjali Rao</option>
+                        <option value="Dr. Karan Malhotra">Dr. Karan Malhotra</option>
+                        <option value="Prof. Ritu Sharma">Prof. Ritu Sharma</option>
+                        <option value="Dr. Amit Joshi">Dr. Amit Joshi</option>
+                    </select>
+                </div>
   
-              <!-- Mentor Name Dropdown -->
-  <div class="form-group">
-  <label>Mentor Name *</label>
-  <select name="mentorName" required>
-    <option value="" disabled selected>Select Mentor</option>
-    <option value="Dr. Sanjay Mehta">Dr. Sanjay Mehta</option>
-    <option value="Prof. Anjali Rao">Prof. Anjali Rao</option>
-    <option value="Dr. Karan Malhotra">Dr. Karan Malhotra</option>
-    <option value="Prof. Ritu Sharma">Prof. Ritu Sharma</option>
-    <option value="Dr. Amit Joshi">Dr. Amit Joshi</option>
-  </select>
+                <div class="form-group">
+                    <label>Team Members *</label>
+                    <div id="teamMembers">
+                        <div class="team-member">
+                            <span class="team-member-role">Team Lead</span>
+                            <input type="text" name="teamMember.name[]" placeholder="Name" required>
+                            <input type="text" name="teamMember.contact[]" placeholder="LinkedIn/Email" required>
+                        </div>
+                        <div class="team-member">
+                            <span class="team-member-role">Member</span>
+                            <input type="text" name="teamMember.name[]" placeholder="Name" required>
+                            <input type="text" name="teamMember.contact[]" placeholder="LinkedIn/Email" required>
+                            <button type="button" class="btn btn-icon remove-member">×</button>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-outline" id="addMember">+ Add Team Member</button>
+                    <div class="error-message"></div>
+                </div>
+  
+                <div class="form-group">
+                    <label>Tech Stacks *</label>
+                    <div class="tech-stacks" id="techStacks">
+                        <button type="button" class="tech-stack-btn" data-tech="AI">AI</button>
+                        <button type="button" class="tech-stack-btn" data-tech="ML">ML</button>
+                        <button type="button" class="tech-stack-btn" data-tech="Web Development">Web Development</button>
+                        <button type="button" class="tech-stack-btn" data-tech="Mobile Development">Android Development</button>
+                        <button type="button" class="tech-stack-btn" data-tech="Cloud Computing">Cloud Computing</button>
+                        <button type="button" class="tech-stack-btn" data-tech="DevOps">DevOps</button>
+                        <button type="button" class="tech-stack-btn" data-tech="Blockchain">Blockchain</button>
+                        <button type="button" class="tech-stack-btn" data-tech="IoT">IoT</button>
+                    </div>
+                    <div class="error-message"></div>
+                </div>
+  
+                <div class="upload-container">
+                    <label>Upload Project Output Images (Min 1 & Max 5) *</label>
+                    <input type="file" id="projectImages" name="projectImages" accept="image/*" multiple required>
+                </div>
+  
+                <div class="upload-container">
+                    <label>Upload Project Code (ZIP, RAR) *</label>
+                    <input type="file" id="projectCode" name="projectCode" accept=".zip,.rar" required>
+                </div>
+  
+                <div class="form-group">
+                    <label>GitHub Repository Link</label>
+                    <input type="url" name="githubLink" placeholder="https://github.com/username/repository">
+                    <div class="error-message"></div>
+                </div>
+  
+                <div class="form-group">
+                    <label>Project Live Link (Optional)</label>
+                    <input type="url" name="liveLink" placeholder="https://your-project-url.com">
+                    <div class="error-message"></div>
+                </div>
+  
+                <div class="form-group">
+                    <label>Challenges Faced</label>
+                    <textarea name="challenges" rows="4"></textarea>
+                </div>
+  
+                <button type="submit" class="btn btn-primary" style="width: 100%">Submit Project</button>
+            </form>
+        </div>
+    </div>
   </div>
-  
-  
-              <div class="form-group">
-                  <label>Team Members *</label>
-                  <div id="teamMembers">
-                      <div class="team-member">
-                          <span class="team-member-role">Team Lead</span>
-                          <input type="text" placeholder="Name" required>
-                          <input type="text" placeholder="LinkedIn/Email" required>
-                      </div>
-                      <div class="team-member">
-                          <span class="team-member-role">Member</span>
-                          <input type="text" placeholder="Name" required>
-                          <input type="text" placeholder="LinkedIn/Email" required>
-                          <button type="button" class="btn btn-icon remove-member">×</button>
-                      </div>
-                  </div>
-                  <button type="button" class="btn btn-outline" id="addMember">+ Add Team Member</button>
-                  <div class="error-message"></div>
-              </div>
-  
-              <div class="form-group">
-                  <label>Tech Stacks *</label>
-                  <div class="tech-stacks" id="techStacks">
-                      <button type="button" class="tech-stack-btn" data-tech="AI">AI</button>
-                      <button type="button" class="tech-stack-btn" data-tech="ML">ML</button>
-                      <button type="button" class="tech-stack-btn" data-tech="Web Development">Web Development</button>
-                      <button type="button" class="tech-stack-btn" data-tech="Mobile Development">Mobile Development</button>
-                      <button type="button" class="tech-stack-btn" data-tech="Cloud Computing">Cloud Computing</button>
-                      <button type="button" class="tech-stack-btn" data-tech="DevOps">DevOps</button>
-                      <button type="button" class="tech-stack-btn" data-tech="Blockchain">Blockchain</button>
-                      <button type="button" class="tech-stack-btn" data-tech="IoT">IoT</button>
-                  </div>
-                  <div class="error-message"></div>
-              </div>
-  
-          
-  <!-- Upload Images -->
-  <div class="upload-container">
-  <label>Upload Project Output Images (Min 1 & Max 5) *</label>
-  <input type="file" id="projectImages" accept="image/*" multiple required>
-  </div>
-  
-  <!-- Upload Code File -->
-  <div class="upload-container">
-  <label>Upload Project Code (ZIP, RAR) *</label>
-  <input type="file" id="projectCode" accept=".zip,.rar" required>
-  </div>
-  
-  <!-- github repo link -->
-  
-              <div class="form-group">
-                  <label>GitHub Repository Link</label>
-                  <input type="url" name="githubLink" placeholder="https://github.com/username/repository">
-                  <div class="error-message"></div>
-              </div>
-  <!-- project live link -->
-              <div class="form-group">
-                  <label>Project Live Link</label>
-                  <input type="url" name="liveLink" placeholder="https://your-project-url.com">
-                  <div class="error-message"></div>
-              </div>
-  
-              <div class="form-group">
-                  <label>Challenges Faced</label>
-                  <textarea name="challenges" rows="4"></textarea>
-              </div>
-  
-              <button type="submit" class="btn btn-primary" style="width: 100%">Submit Project</button>
-          </form>
-      </div>
-  </div>
-  
-  <script>
-      document.addEventListener('DOMContentLoaded', function() {
-          const form = document.getElementById('projectForm');
-          const addMemberBtn = document.getElementById('addMember');
-          const techStacksContainer = document.getElementById('techStacks');
-          const teamMembersContainer = document.getElementById('teamMembers');
-  
-          // Handle tech stack selection
-          techStacksContainer.addEventListener('click', (e) => {
-              if (e.target.classList.contains('tech-stack-btn')) {
-                  e.target.classList.toggle('active');
-              }
-          });
-  
-          // Add team member
-          addMemberBtn.addEventListener('click', () => {
-              const memberDiv = document.createElement('div');
-              memberDiv.className = 'team-member';
-              memberDiv.innerHTML = `
-                  <span class="team-member-role">Member</span>
-                  <input type="text" placeholder="Name" required>
-                  <input type="text" placeholder="LinkedIn/Email" required>
-                  <button type="button" class="btn btn-icon remove-member">×</button>
-              `;
-              teamMembersContainer.appendChild(memberDiv);
-          });
-  
-          // Remove team member
-          teamMembersContainer.addEventListener('click', (e) => {
-              if (e.target.classList.contains('remove-member')) {
-                  e.target.parentElement.remove();
-              }
-          });
-  
-          // Form validation and submission
-          form.addEventListener('submit', async (e) => {
-              e.preventDefault();
-              
-              // Reset error messages
-              document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
-              
-              // Validate form
-              let isValid = true;
-              const errors = {};
-  
-              // Project name validation
-              if (!form.projectName.value.trim()) {
-                  errors.projectName = 'Project name is required';
-                  isValid = false;
-              }
-  
-              // Description validation
-              if (!form.description.value.trim()) {
-                  errors.description = 'Description is required';
-                  isValid = false;
-              }
-  
-              // // Mentor name validation
-              // if (!form.mentorName.value.trim()) {
-              //     errors.mentorName = 'Mentor name is required';
-              //     isValid = false;
-              // }
-              document.getElementById("projectForm").addEventListener("submit", function(event) {
-  const mentorSelect = document.querySelector("select[name='mentorName']");
-  
-  if (mentorSelect.value === "") {
-      alert("Please select a mentor! 🚀");
-      event.preventDefault(); 
-  }
-  });
-  
-  
-              // Tech stacks validation
-              const selectedTechStacks = Array.from(techStacksContainer.querySelectorAll('.active'))
-                  .map(btn => btn.dataset.tech);
-              if (selectedTechStacks.length === 0) {
-                  const techStacksError = techStacksContainer.nextElementSibling;
-                  techStacksError.textContent = 'Select at least one technology stack';
-                  isValid = false;
-              }
-  // project image previewImage
-  function handleFileUpload(inputElement) {
-      inputElement.addEventListener('change', function() {
-          if (this.files.length > 0) {
-              console.log(this.files.length + " file(s) selected");
-          }
-      });
-  }
-  
-  handleFileUpload(document.getElementById('projectImages'));
-  handleFileUpload(document.getElementById('projectCode'));
-  
-  
-              // GitHub link validation
-              if (form.githubLink.value) {
-                  const githubRegex = /^https?:\/\/github\.com\/[\w-]+\/[\w-]+$/;
-                  if (!githubRegex.test(form.githubLink.value)) {
-                      errors.githubLink = 'Please enter a valid GitHub repository URL';
-                      isValid = false;
-                  }
-              }
-  
-              // Live link validation
-              if (form.liveLink.value) {
-                  const urlRegex = /^https?:\/\/.+/;
-                  if (!urlRegex.test(form.liveLink.value)) {
-                      errors.liveLink = 'Please enter a valid URL';
-                      isValid = false;
-                  }
-              }
-  
-              // Display errors if any
-              Object.keys(errors).forEach(key => {
-                  const input = form.querySelector(`[name="${key}"]`);
-                  const errorDiv = input.nextElementSibling;
-                  errorDiv.textContent = errors[key];
-              });
-  
-              if (!isValid) return;
-  
-              // Submit form
-              const submitBtn = form.querySelector('button[type="submit"]');
-              const originalBtnText = submitBtn.innerHTML;
-              submitBtn.innerHTML = '<span class="loading"></span>Submitting...';
-              submitBtn.disabled = true;
-  
-              try {
-                  // Simulate API call
-                  await new Promise(resolve => setTimeout(resolve, 1500));
-  
-                  // Create success message
-                  const alert = document.createElement('div');
-                  alert.className = 'alert alert-success';
-                  alert.textContent = 'Project submitted successfully!';
-                  form.appendChild(alert);
-  
-                  // Reset form
-                  form.reset();
-                  techStacksContainer.querySelectorAll('.active').forEach(btn => btn.classList.remove('active'));
-                  const teamMembers = teamMembersContainer.querySelectorAll('.team-member');
-                  for (let i = 2; i < teamMembers.length; i++) {
-                      teamMembers[i].remove();
-                  }
-  
-              } catch (error) {
-                  // Create error message
-                  const alert = document.createElement('div');
-                  alert.className = 'alert alert-error';
-                  alert.textContent = 'An error occurred. Please try again.';
-                  form.appendChild(alert);
-              } finally {
-                  submitBtn.innerHTML = originalBtnText;
-                  submitBtn.disabled = false;
-              }
-          });
-      });
-  </script>
-  
-  
-  </div>
-  
-  
-  
-  <!-- <!DOCTYPE html>
-  <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Project Submission Form</title> -->
-      
