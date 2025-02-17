@@ -5,12 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explore Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
-    
 </head>
 <body class="bg-gray-100">
-
-
 
     <nav class="fixed top-0 left-0 right-0 w-full bg-white/80 backdrop-blur-md shadow-sm z-50">
         <div class="max-w-7xl mx-auto px-6">
@@ -24,7 +20,7 @@
     
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-6">
-                    <button data-page="home.html" class="text-gray-700 font-medium hover:text-blue-600 transition nav-home-project"  >Home</button>
+                    <button data-page="home.html" class="text-gray-700 font-medium hover:text-blue-600 transition nav-home-project">Home</button>
                     <button class="text-gray-700 font-medium hover:text-blue-600 transition">Explore Projects</button>
                     <button class="text-gray-700 font-medium hover:text-blue-600 transition nav-submit-project">Submit Project</button>
                     <button class="text-gray-700 font-medium hover:text-blue-600 transition">About Us</button>
@@ -55,10 +51,8 @@
         </div>
     
         <!-- Mobile Menu -->
-        <!-- <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md px-6 py-4 space-y-2"> -->
-
-            <div id="mobile-menu" class="md:hidden flex flex-col space-y-2 bg-white shadow-md px-4 py-2 text-center">
-            <button class="text-gray-700 font-medium hover:text-blue-600 transition block w-full text-left"  data-page="home.html">Home</button>
+        <div id="mobile-menu" class="md:hidden flex flex-col space-y-2 bg-white shadow-md px-4 py-2 text-center">
+            <button class="text-gray-700 font-medium hover:text-blue-600 transition block w-full text-left" data-page="home.html">Home</button>
             <button class="text-gray-700 font-medium hover:text-blue-600 transition block w-full text-left">Explore Projects</button>
             <button class="text-gray-700 font-medium hover:text-blue-600 transition block w-full text-left nav-submit-project">Submit Project</button>
             <button class="text-gray-700 font-medium hover:text-blue-600 transition block w-full text-left">About Us</button>
@@ -74,53 +68,47 @@
                     <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">My Profile</a>
                     <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Logout</a>
                 </div>
-
-
+            </div>
+        </div>
     </nav>
-  
-
-
-
 
     <!-- Content Container Where Form Will Load -->
-    <!-- <div id="content-container" class="mt-20 w-full max-w-screen-xl mx-auto px-6"> </div>   -->
-    <div id="content-container" class="mt-9 w-full">
-
-
+    <div id="content-container" class="mt-9 w-full"></div>
 
     <!-- JavaScript -->
+
 <script>
   // Toggle Mobile Menu
-  document.getElementById("menu-btn").addEventListener("click", function () {
-      const mobileMenu = document.getElementById("mobile-menu");
-      mobileMenu.classList.toggle("hidden");
-  });
+document.getElementById("menu-btn").addEventListener("click", function () {
+    const mobileMenu = document.getElementById("mobile-menu");
+    mobileMenu.classList.toggle("hidden");
+});
 
-  // Load Submit Project Form Without Reloading
-  document.querySelectorAll(".nav-submit-project").forEach(button => {
-      button.addEventListener("click", function () {
-          fetch("submit_project.html") 
-              .then(response => response.text()) 
-              .then(html => {
-                  document.getElementById("content-container").innerHTML = html;
-              })
-              .catch(error => console.error("Error loading the form:", error));
-      });
-  });
+// Load Submit Project Form Without Reloading
+document.querySelectorAll(".nav-submit-project").forEach(button => {
+    button.addEventListener("click", function () {
+        fetch("submit_project.html")
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById("content-container").innerHTML = html;
+                initializeSubmitForm(); // Initialize the form functionality after loading content
+            })
+            .catch(error => console.error("Error loading the form:", error));
+    });
+});
 
-  document.querySelectorAll(".nav-home-project").forEach(button => {
-      button.addEventListener("click", function () {
-          fetch("home.html") 
-              .then(response => response.text()) 
-              .then(html => {
-                  document.getElementById("content-container").innerHTML = html;
-              })
-              .catch(error => console.error("Error loading the form:", error));
-      });
-  });
+document.querySelectorAll(".nav-home-project").forEach(button => {
+    button.addEventListener("click", function () {
+        fetch("home.html")
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById("content-container").innerHTML = html;
+            })
+            .catch(error => console.error("Error loading the form:", error));
+    });
+});
 
-
-  document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
     function loadPage(page) {
         fetch(page)
             .then(response => response.text())
@@ -132,16 +120,9 @@
 
     // Default Load Home Page Content
     loadPage("home.html");
-
-    // Navigation Click Event
-    document.querySelectorAll(".nav-btn").forEach(button => {
-        button.addEventListener("click", function () {
-            const page = this.getAttribute("data-page");
-            if (page) loadPage(page);
-        });
-    });
 });
-  // Toggle Profile Dropdown
+
+// Toggle Profile Dropdown
 document.getElementById("profile-btn").addEventListener("click", function () {
     const profileMenu = document.getElementById("profile-menu");
     profileMenu.classList.toggle("hidden");
@@ -157,60 +138,216 @@ document.addEventListener("click", function (event) {
     }
 });
 
-
 // Toggle Mobile Profile Dropdown
 document.getElementById("mobile-profile-btn").addEventListener("click", function () {
     const profileMenu = document.getElementById("mobile-profile-menu");
     profileMenu.classList.toggle("hidden");
 });
 
+// Initialize Submit Form Function
+function initializeSubmitForm() {
+    const form = document.getElementById('projectForm');
+    if (!form) {
+        console.error("Form not found!");
+        return;
+    }
 
+    const techStacksContainer = document.getElementById('techStacks');
+    //new two line
+    const addMemberBtn = document.getElementById('addMember');
+    const teamMembersContainer = document.getElementById('teamMembers');
+
+    // 🛠 Fix: Handle tech stack selection dynamically
+    techStacksContainer.addEventListener('click', (e) => {
+        if (e.target.classList.contains('tech-stack-btn')) {
+            e.target.classList.toggle('active');
+
+            // Add visual feedback
+            if (e.target.classList.contains('active')) {
+                e.target.style.backgroundColor = '#007bff';
+                e.target.style.color = 'white';
+            } else {
+                e.target.style.backgroundColor = '';
+                e.target.style.color = '';
+            }
+        }
+    });
+
+    // 🛠 Fix: Add Team Member Dynamically
+    addMemberBtn.addEventListener('click', () => {
+        const memberDiv = document.createElement('div');
+        memberDiv.className = 'team-member';
+        memberDiv.innerHTML = `
+            <span class="team-member-role">Member</span>
+            <input type="text" name="teamMember.name[]" placeholder="Name" required>
+            <input type="text" name="teamMember.contact[]" placeholder="LinkedIn/Email" required>
+            <button type="button" class="btn btn-icon remove-member">×</button>
+        `;
+        teamMembersContainer.appendChild(memberDiv);
+    });
+
+    // 🛠 Fix: Remove Team Member Dynamically
+    teamMembersContainer.addEventListener('click', (e) => {
+        if (e.target.classList.contains('remove-member')) {
+            const members = teamMembersContainer.querySelectorAll('.team-member');
+            if (members.length > 1) {
+                e.target.parentElement.remove();
+            } else {
+                alert("At least one member is required!");
+            }
+        }
+    });
+
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        if (!validateForm()) return;
+
+        // Collect form data
+        const formData = new FormData(form);
+        const searchParams = new URLSearchParams();
+
+        // 🔥 Fix: Add selected tech stacks
+        const selectedTechStacks = Array.from(techStacksContainer.querySelectorAll('.active'))
+            .map(btn => btn.dataset.tech);
+        formData.append('techStacks', selectedTechStacks.join(','));
+
+        // 🔥 Fix: Collect Team Members Data
+        const teamMembers = Array.from(teamMembersContainer.querySelectorAll('.team-member')).map(member => ({
+            role: member.querySelector('.team-member-role').textContent,
+            name: member.querySelector('input[placeholder="Name"]').value,
+            contact: member.querySelector('input[placeholder="LinkedIn/Email"]').value
+        }));
+        formData.append('teamMembers', JSON.stringify(teamMembers));
+
+        for (const [key, value] of formData.entries()) {
+            searchParams.append(key, value);
+        }
+
+        // Show success message
+        const alert = document.createElement('div');
+        alert.className = 'alert alert-success';
+        alert.textContent = 'Form submitted successfully! Redirecting...';
+        form.insertAdjacentElement('beforebegin', alert);
+
+        // Redirect to home.html with form data
+        setTimeout(() => {
+            window.location.href = `home.html?${searchParams.toString()}`;
+        }, 1000);
+    });
+
+    console.log("Submit project form initialized!");
+}
+
+// Form Validation
+function validateForm() {
+    let isValid = true;
+    clearErrors();
+
+    // Project name validation
+    if (!document.querySelector('[name="projectName"]').value.trim()) {
+        showError('projectName', 'Project name is required');
+        isValid = false;
+    }
+
+    // Description validation
+    if (!document.querySelector('[name="description"]').value.trim()) {
+        showError('description', 'Description is required');
+        isValid = false;
+    }
+
+    // Mentor validation
+    if (!document.querySelector('[name="mentorName"]').value) {
+        showError('mentorName', 'Please select a mentor');
+        isValid = false;
+    }
+
+    // Tech stacks validation
+    const techStacksContainer = document.getElementById('techStacks');
+    if (!techStacksContainer.querySelector('.active')) {
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'error-message';
+        errorDiv.textContent = 'Select at least one technology stack';
+        techStacksContainer.parentElement.appendChild(errorDiv);
+        isValid = false;
+    }
+
+    // File validation
+    const projectImages = document.getElementById('projectImages');
+    if (projectImages.files.length === 0) {
+        showError('projectImages', 'Please upload at least one project image');
+        isValid = false;
+    } else if (projectImages.files.length > 5) {
+        showError('projectImages', 'Maximum 5 images allowed');
+        isValid = false;
+    }
+
+    const projectCode = document.getElementById('projectCode');
+    if (projectCode.files.length === 0) {
+        showError('projectCode', 'Please upload your project code');
+        isValid = false;
+    }
+
+    return isValid;
+}
+
+// Show Error Message
+function showError(fieldName, message) {
+    const field = document.querySelector(`[name="${fieldName}"]`) || document.getElementById(fieldName);
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'error-message';
+    errorDiv.textContent = message;
+    field.parentElement.appendChild(errorDiv);
+}
+
+// Clear Error Messages
+function clearErrors() {
+    document.querySelectorAll('.error-message').forEach(error => error.remove());
+}
 </script>
 
-<style>
 
-body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    width: 100%;
-}
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            width: 100%;
+        }
 
-#content-container {
-    margin-top: 0;
-    padding-top: 4rem; 
-}
+        #content-container {
+            margin-top: 0;
+            padding-top: 4rem; 
+        }
 
+        .nav-btn {
+            position: relative;
+            padding: 8px 12px;
+            font-weight: 600;
+            color: #333;
+            transition: color 0.3s ease-in-out;
+        }
 
-.nav-btn {
-    position: relative;
-    padding: 8px 12px;
-    font-weight: 600;
-    color: #333;
-    transition: color 0.3s ease-in-out;
-}
+        .nav-btn::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -2px;
+            width: 0;
+            height: 2px;
+            background-color: #2563eb;
+            transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+        }
 
-.nav-btn::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: -2px;
-    width: 0;
-    height: 2px;
-    background-color: #2563eb;
-    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
-}
+        .nav-btn:hover {
+            color: #2563eb;
+        }
 
-.nav-btn:hover {
-    color: #2563eb;
-}
-
-.nav-btn:hover::after {
-    width: 100%;
-    left: 0;
-}
-
-</style>
-
+        .nav-btn:hover::after {
+            width: 100%;
+            left: 0;
+        }
+    </style>
 </body>
 </html>
